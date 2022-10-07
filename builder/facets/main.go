@@ -13,6 +13,14 @@ type PersonBuilder struct {
 	person *Person
 }
 
+func (b *PersonBuilder) Lives() *PersonAddressBuilder {
+	return &PersonAddressBuilder{*b}
+}
+
+func (b *PersonBuilder) Works() *PersonJobBuilder {
+	return &PersonJobBuilder{*b}
+}
+
 func NewPersonBuilder() *PersonBuilder {
 	return &PersonBuilder{&Person{}}
 }
